@@ -1,7 +1,19 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
 
 targetCompatibility = "1.7"
 sourceCompatibility = "1.7"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -9,4 +21,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:1.10.19"
     testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    testCompile "com.nhaarman:mockito-kotlin:0.2.0"
 }
