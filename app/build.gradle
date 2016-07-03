@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-ext.support_lib_version = "23.3.0"
+ext.support_lib_version = "23.4.0"
 
 android {
     compileSdkVersion 23
@@ -24,15 +24,29 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':core')
+    // Support
     compile "com.android.support:appcompat-v7:$support_lib_version"
-    compile "com.android.support:design:$support_lib_version"
-    compile "com.android.support:cardview-v7:$support_lib_version"
-    compile "com.android.support:recyclerview-v7:$support_lib_version"
-    compile "com.android.support:percent:$support_lib_version"
-    compile "com.android.support:palette-v7:$support_lib_version"
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile "com.github.memoizr:shank:v1.3.0-beta"
     compile 'com.android.support:appcompat-v7:23.4.0'
+
+    // Dependency Injection
+    compile "com.github.memoizr:shank:v1.3.0-beta"
+
+    // RX
+    compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
     compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
+
+    // Retrofit
+    compile "com.squareup.okhttp:okhttp:2.7.0"
+    compile 'com.squareup.okio:okio:1.6.0'
+    compile("com.squareup.retrofit:retrofit:2.0.0-beta2") {
+        exclude group: 'com.squareup.okhttp', module: 'okhttp'
+    }
+    compile("com.squareup.retrofit:converter-gson:2.0.0-beta2") {
+        exclude group: 'com.squareup.okhttp', module: 'okhttp'
+    }
+    compile("com.squareup.retrofit:adapter-rxjava:2.0.0-beta2") {
+        exclude group: 'com.squareup.okhttp', module: 'okhttp'
+    }
+    testCompile "com.squareup.okhttp:mockwebserver:2.7.0"
 }
