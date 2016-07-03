@@ -8,9 +8,11 @@ import java.io.IOException;
 public class MockWebServerBuilder {
 
     private MockWebServer mockWebServer = new MockWebServer();
+
     public static MockWebServerBuilder aMockWebServer() {
         return new MockWebServerBuilder();
     }
+
     public MockWebServerBuilder returningJson(String json) {
         mockWebServer.enqueue(new MockResponse().setBody(json));
         return this;
