@@ -28,7 +28,7 @@ class Classes {
     @Test
     fun secondaryConstructors() {
         class SecondaryClass(val integer: Int) {
-            constructor(sting: String) : this(42)
+            constructor(string: String) : this(42)
         }
         assertThat(SecondaryClass("hello").integer, equalTo(42))
     }

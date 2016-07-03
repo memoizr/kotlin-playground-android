@@ -20,11 +20,11 @@ class FunctionsAndLambdas {
 
     @Test
     fun verifyCorrectDefaultArgument() {
-        assertThat(defaultArgument("hello"), equalTo("hello"))
-        assertThat(defaultArgument(), equalTo(globalValue))
+        assertThat(functionWithDefaultArgument("hello"), equalTo("hello"))
+        assertThat(functionWithDefaultArgument(), equalTo(globalValue))
     }
 
-    private fun defaultArgument(value: String = TODO("Substitute with default parameter")): String {
+    private fun functionWithDefaultArgument(value: String = TODO("Substitute with default parameter")): String {
         return TODO("Return the value unchanged")
     }
 

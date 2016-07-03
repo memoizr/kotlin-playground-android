@@ -5,7 +5,7 @@ import org.junit.Assert.assertThat
 import org.junit.Test
 import java.util.*
 
-class When {
+class ControlFlow {
     @Test
     fun testCombinedConditions() {
         val x = 0
