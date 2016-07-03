@@ -15,12 +15,12 @@ import static org.mockito.Mockito.when;
 
 public class ExchangeRatePresenterTest {
 
-    ExchangeRatePresenter.View view = mock(ExchangeRatePresenter.View.class);
-    GBPExchangeRateService gbpExchangeRateService = mock(GBPExchangeRateService.class);
-    PublishSubject<Void> refreshes = PublishSubject.create();
-    Presenter<ExchangeRatePresenter.View> presenter = new ExchangeRatePresenter(gbpExchangeRateService, new RxSchedulersForTest());
+    private ExchangeRatePresenter.View view = mock(ExchangeRatePresenter.View.class);
+    private GBPExchangeRateService gbpExchangeRateService = mock(GBPExchangeRateService.class);
+    private PublishSubject<Void> refreshes = PublishSubject.create();
+    private Presenter<ExchangeRatePresenter.View> presenter = new ExchangeRatePresenter(gbpExchangeRateService, new RxSchedulersForTest());
 
-    GBPExchangeRate exchangeRate = aGBPExchangeRate().withEur(10).withUsd(5).build();
+    private GBPExchangeRate exchangeRate = aGBPExchangeRate().withEur(10).withUsd(5).build();
 
     @Before
     public void setup() {

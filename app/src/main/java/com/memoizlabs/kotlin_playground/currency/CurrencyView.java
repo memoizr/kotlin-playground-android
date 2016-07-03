@@ -14,9 +14,9 @@ import rx.Observable;
 
 public class CurrencyView extends LinearLayout implements ExchangeRatePresenter.View {
 
-    TextView usdTextView;
-    TextView eurTextView;
-    Presenter<ExchangeRatePresenter.View> presenter;
+    private TextView usdTextView;
+    private TextView eurTextView;
+    private Presenter<ExchangeRatePresenter.View> presenter;
 
     public CurrencyView(Context context) {
         super(context);
