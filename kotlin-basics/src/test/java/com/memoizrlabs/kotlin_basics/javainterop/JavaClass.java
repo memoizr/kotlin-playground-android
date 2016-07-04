@@ -9,21 +9,21 @@ public class JavaClass {
     @Test
     public void globalFunctions() {
         // Call `globalFunction`
-        String globalFunctionResult = null; //FunctionsKt.globalFunction();
+        String globalFunctionResult = null;
         assertThat(globalFunctionResult, equalTo("Hello World"));
     }
 
     @Test
     public void lastChar() {
         // Call the `appendPrefix` extension function and satisfy the test
-        String result = null;// KotlinExtensionsKt.appendPrefix("hello", "Oh, ");
+        String result = null;
         assertThat(result, equalTo("Oh, hello"));
     }
 
     @Test
     public void companionObject() {
         // Get the `defaultString` from KotlinClass
-        String defaultString = null; //KotlinClass.defaultString;
+        String defaultString = null;
         assertThat(defaultString, equalTo("hello"));
     }
 

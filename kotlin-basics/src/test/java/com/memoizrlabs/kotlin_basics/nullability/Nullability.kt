@@ -11,7 +11,6 @@ class Nullability {
     fun nullablility() {
         // Substutute equivalent using elvis operator ?:
         fun getValueOrZeroIfNull(x: Int?): Int = Optional.ofNullable(x).orElseGet { 0 }!!
-//        fun getValueOrZeroIfNull(x: Int?): Int = x ?: 0
 
         assertThat(getValueOrZeroIfNull(88), equalTo(88))
         assertThat(getValueOrZeroIfNull(null), equalTo(0))
@@ -21,7 +20,6 @@ class Nullability {
     fun safeSizeCheck() {
         // Substutute equivalent using safe method call
         fun safeSize(list: List<*>?): Int = Optional.ofNullable(list).map { it!!.size }.orElseGet { 0 }
-//        fun safeSize(list: List<*>?): Int = list?.size ?: 0
 
         assertThat(safeSize(listOf("hey")), equalTo(1))
         assertThat(safeSize(null), equalTo(0))
@@ -31,7 +29,6 @@ class Nullability {
     fun runIfPresentsWithRun() {
         val value: AtomicInteger = AtomicInteger(2)
         fun runIfPresent(x: Int?) = Optional.ofNullable(x).ifPresent { value.incrementAndGet() }
-//        fun runIfPresent(x: Int?) = x?.run { value.incrementAndGet() }
         runIfPresent(0)
         assertThat(value.get(), equalTo(3))
         runIfPresent(null)

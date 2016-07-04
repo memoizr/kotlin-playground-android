@@ -15,7 +15,7 @@ class Classes {
         open class AClass
 
         //Make AChildClass implementAnInterface and AClass
-        class AChildClass// : AnInterface, AClass()
+        class AChildClass
 
         assertTrue(AnInterface::class.java.isInstance(AChildClass()))
         assertTrue(AClass::class.java.isInstance(AChildClass()))
@@ -23,7 +23,7 @@ class Classes {
 
     // Interfaces in Kotlin are like Java8 interfaces, stateless but with implementations
     interface SimpleInterface {
-        fun helloWorld(): String =  todo("substitute with Hello World") // "Hello World"
+        fun helloWorld(): String =  todo("substitute with Hello World")
     }
 
     @Test
@@ -46,7 +46,7 @@ class Classes {
         data class User(val name: String, val height: Int)
         val john = User("john", 178)
         // Create a copy of john, change the height to be 180
-        val updatedUser = john//.copy(height = 180)
+        val updatedUser = john
         assertTrue(updatedUser.height == 180)
     }
 
@@ -65,7 +65,7 @@ class Classes {
             val value: String
             init {
                 // convert value to upper case
-                this.value = value// .toUpperCase
+                this.value = value
             }
         }
         assertThat(SecondaryClass("hello").value, equalTo("HELLO"))

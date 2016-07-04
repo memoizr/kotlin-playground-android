@@ -1,7 +1,8 @@
 package com.memoizrlabs.kotlin_basics.collections
 
 import org.hamcrest.core.IsEqual.equalTo
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThat
 import org.junit.Test
 
 class Collections {
@@ -9,7 +10,7 @@ class Collections {
     @Test
     fun map() {
         // Use map to increase each by one
-        val list = listOf(1, 2, 3, 4, 5, 6)//.map { it + 1 }
+        val list = listOf(1, 2, 3, 4, 5, 6)
 
         assertThat(list, equalTo(listOf(2, 3, 4, 5, 6, 7)))
     }
@@ -18,7 +19,7 @@ class Collections {
     fun first() {
 
         // use `first` to get the first element
-        val first = listOf(1, 2, 3, 4, 5, 6)//.first()
+        val first = listOf(1, 2, 3, 4, 5, 6)
 
         assertEquals(1, first)
     }
@@ -26,7 +27,7 @@ class Collections {
     @Test
     fun flatMap() {
         // Use `flatMap` to convert the list into list below
-        val list = listOf(1, 2)//.flatMap { listOf("$it one", "$it two") }
+        val list = listOf(1, 2)
 
         assertEquals(listOf("1 one", "1 two", "2 one", "2 two"), list)
     }
