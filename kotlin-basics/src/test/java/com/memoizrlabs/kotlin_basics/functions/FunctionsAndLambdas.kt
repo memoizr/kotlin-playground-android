@@ -1,5 +1,6 @@
 package com.memoizrlabs.kotlin_basics.functions
 
+import com.memoizrlabs.kotlin_basics.todo
 import org.hamcrest.core.IsEqual.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test
@@ -43,7 +44,7 @@ class FunctionsAndLambdas {
     @Test
     fun lambdaAsLastParameter() {
         // you can pass the last parameter outside of the parenthesis. Modify the expression below to use that idiom.
-        val addition = processTwoInts("addition", { a, b -> a + b })
+        val addition = processTwoInts("addition", { a, b -> a - b })
 
         assertThat(addition, equalTo("Result for addition: 4"))
     }

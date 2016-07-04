@@ -30,8 +30,8 @@ class Nullability {
     @Test
     fun runIfPresentsWithRun() {
         val value: AtomicInteger = AtomicInteger(2)
-//        fun runIfPresent(x: Int?) = Optional.ofNullable(x).ifPresent { value.incrementAndGet() }
-        fun runIfPresent(x: Int?) = x?.run { value.incrementAndGet() }
+        fun runIfPresent(x: Int?) = Optional.ofNullable(x).ifPresent { value.incrementAndGet() }
+//        fun runIfPresent(x: Int?) = x?.run { value.incrementAndGet() }
         runIfPresent(0)
         assertThat(value.get(), equalTo(3))
         runIfPresent(null)

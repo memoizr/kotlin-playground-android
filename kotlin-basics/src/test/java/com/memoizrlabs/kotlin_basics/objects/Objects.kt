@@ -5,24 +5,21 @@ import org.junit.Assert.assertThat
 import org.junit.Test
 
 class Objects {
-    object ThereCanBeOnlyOne
+    class ThereCanBeOnlyOne()
 
     @Test
     fun objectsAreSingletons() {
-        assertThat(ThereCanBeOnlyOne, equalTo(ThereCanBeOnlyOne))
+        // Make `ThereCanBeOnlyOne` a singleton by making it an object
+        assertThat(ThereCanBeOnlyOne(), equalTo(ThereCanBeOnlyOne()))
     }
 
     @Test
     fun companionObjectsHaveStaticMethods() {
-        val duck = Duck.duck
-        val name = Duck.name
+        class Duck {
+            // convert `quack` to be a static method inside a companion object
+            fun quack() = "Quack!"
+        }
+        assertThat(Duck().quack(), equalTo("Quack!"))
     }
 
-    class Duck {
-        companion object {
-            fun quack() = "Quack!"
-            const val name = "duck"
-            @JvmField val duck = Duck()
-        }
-    }
 }

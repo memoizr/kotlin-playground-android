@@ -6,6 +6,13 @@ import org.junit.Test
 
 class Extensions {
     @Test
+    fun lastChar() {
+        fun String.lastChar(): Char = last()
+
+        assertThat("hello".lastChar(), equalTo('o'))
+    }
+
+    @Test
     fun copyOnWrite() {
         val mutableList = mutableListOf(1,2)
         class Inner(list: MutableList<Int>) {

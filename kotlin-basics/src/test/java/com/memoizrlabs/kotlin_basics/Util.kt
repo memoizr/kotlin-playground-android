@@ -1,4 +1,4 @@
-package com.memoizrlabs.kotlin_basics.functions
+package com.memoizrlabs.kotlin_basics
 
 class NotImplementedException(message: String): Exception(message)
 

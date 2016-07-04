@@ -6,11 +6,13 @@ import org.junit.Test
 import java.util.*
 
 class ControlFlow {
+
     @Test
     fun testCombinedConditions() {
+        // Change the appropriate branch to make it return the expected value
         val x = 0
         val result = when (x) {
-            0, 1 -> "x == 0 or x == 1"
+            0, 1 -> ""
             else -> "otherwise"
         }
         assertThat(result, equalTo("x == 0 or x == 1"))
@@ -18,7 +20,9 @@ class ControlFlow {
 
     @Test
     fun checksForType() {
-        val x = "prefix"
+        // Change the value of `x` to satisfy the test
+        val x: Any = 1
+
         val hasPrefix = when (x) {
             is String -> x.startsWith("prefix")
             else -> false
@@ -28,29 +32,44 @@ class ControlFlow {
 
     @Test
     fun switch() {
-        val x = 0
-        when {
-            x % 2 != 0 -> print("x is odd")
-            x % 2 == 0 -> print("x is even")
-            else -> print("x is funny")
+        val x = 2
+        val switchTest = when {
+            x % 2 != 0 -> "x is odd"
+            // Add an even test branch, and make it return the expected value
+            else -> "x is funny"
         }
+
+        assertThat(switchTest, equalTo("x is even"))
     }
 
     @Test
-    fun forloop() {
-        for (a in (1..10)) {
-
+    fun forLoopTo() {
+        val mutableList = mutableListOf<Int>()
+        for (item in (1..5)) {
+            // Append all items to the list one by one
         }
+        assertThat(mutableList, equalTo(mutableListOf(1, 2, 3, 4, 5)))
+    }
+
+    @Test
+    fun forloopUntil() {
+        val mutableList = mutableListOf<Int>()
+        for (item in (1 until 5)) {
+            // Append all items to the list one by one
+        }
+        assertThat(mutableList, equalTo(mutableListOf(1, 2, 3, 4)))
     }
 
     @Test
     fun smartCast() {
-        fun test(x: Any) = when(x) {
-            is Int -> x + 1
-            is String -> x.toUpperCase()
-            is List<*> -> x.first()
+        // Satisfy the tests, notice how the types are inferred
+        fun test(x: Any) = when (x) {
+            is Int -> x
+            is String -> x
+            is List<*> -> x
             else -> x
         }
+
         val testInt = Random().nextInt(100)
         assertThat(test(testInt) as Int, equalTo(testInt + 1))
 
@@ -63,12 +82,11 @@ class ControlFlow {
 
     @Test
     fun smartCastIf() {
-        val x: Int? = null
+        val x: Int? = 2
 
-        val result =  if (x!= null)
-            x + 1
-        else
-            0
+        // Add one to x, notice the type is inferred
+        val result = if (x != null) x else 0
 
+        assertThat(result, equalTo(3))
     }
 }
