@@ -117,8 +117,8 @@ public final class User {
                 lastName,
                 middleName,
                 age,
-                height,
                 weight,
+                height,
                 father,
                 mother,
                 siblings);

@@ -1,6 +1,5 @@
 package com.memoizrlabs.kotlin_basics.functions
 
-import com.memoizrlabs.kotlin_basics.todo
 import org.hamcrest.core.IsEqual.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test
@@ -16,7 +15,7 @@ class FunctionsAndLambdas {
     }
 
     private fun helloWorld(): String {
-        return TODO("Make this function return Hello World")
+        return "Hello World"
     }
 
     @Test
@@ -25,8 +24,8 @@ class FunctionsAndLambdas {
         assertThat(functionWithDefaultArgument(), equalTo(globalValue))
     }
 
-    private fun functionWithDefaultArgument(value: String = TODO("Substitute with default parameter")): String {
-        return TODO("Return the value unchanged")
+    private fun functionWithDefaultArgument(value: String = globalValue): String {
+        return value
     }
 
     @Test
@@ -34,17 +33,17 @@ class FunctionsAndLambdas {
         val multiply: (Int, Int) -> Int = { a, b -> a * b }
         assertThat(multiply(4, 4), equalTo(16))
 
-        val add: (Int, Int) -> Int = todo("Substitute with a lambda that adds two ints")
+        val add: (Int, Int) -> Int = { a, b -> a + b }
         assertThat(add(1, 2), equalTo(3))
 
-        val square: (Int) -> Int = todo("Substitute with a lambda that squares a number. You can use 'it' when the lambda only needs one param")
+        val square: (Int) -> Int = { a -> a * a }
         assertThat(square(5), equalTo(25))
     }
 
     @Test
     fun lambdaAsLastParameter() {
         // you can pass the last parameter outside of the parenthesis. Modify the expression below to use that idiom.
-        val addition = processTwoInts("addition", { a, b -> a - b })
+        val addition = processTwoInts("addition", { a, b -> a + b })
 
         assertThat(addition, equalTo("Result for addition: 4"))
     }
