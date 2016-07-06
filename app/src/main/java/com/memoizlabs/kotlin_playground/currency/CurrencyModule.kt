@@ -1,16 +1,15 @@
 package com.memoizlabs.kotlin_playground.currency
 
-import com.memoizrlabs.Shank.registerFactory
 import com.memoizrlabs.ShankModule
-import com.memoizrlabs.functions.Func0
+import com.memoizrlabs.shankkotlin.registerFactory
 
 class CurrencyModule : ShankModule {
 
     override fun registerFactories() {
-        registerFactory(ExchangeRatePresenter::class.java, Func0 {
+        registerFactory(ExchangeRatePresenter::class) { ->
             ExchangeRatePresenter(
-                    CurrencyMapper(RetrofitUtil.createService(ExchangeRetrofitService::class.java, "http://api.fixer.io")),
+                    CurrencyMapper(createService(ExchangeRetrofitService::class.java, "http://api.fixer.io")),
                     DefaultAndroidSchedulers())
-        })
+        }
     }
 }

@@ -1,29 +1,7 @@
 package com.memoizlabs.kotlin_playground.currency
 
-class CurrencyGson {
+data class CurrencyGson(val rates: Rates? = null) {
+    fun toGbpExchangeRate(): GBPExchangeRate = GBPExchangeRate(Money(rates?.USD ?: 0.0), Money(rates?.EUR ?: 0.0))
 
-    private val rates: Rates? = null
-
-    fun toGbpExchangeRate(): GBPExchangeRate {
-        return GBPExchangeRate(Money(rates!!.USD), Money(rates.EUR))
-    }
-
-    override fun toString(): String {
-        return "CurrencyGson{" +
-                ", rates=" + rates +
-                '}'
-    }
-
-    private class Rates {
-
-        internal var USD: Double = 0.toDouble()
-        internal var EUR: Double = 0.toDouble()
-
-        override fun toString(): String {
-            return "Rates{" +
-                    "USD=" + USD +
-                    ", EUR=" + EUR +
-                    '}'
-        }
-    }
+    data class Rates( val USD: Double? = null, val EUR: Double? = null)
 }

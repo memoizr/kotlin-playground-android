@@ -4,7 +4,6 @@ import retrofit.http.GET
 import rx.Observable
 
 interface ExchangeRetrofitService {
-
     @GET("/latest?base=GBP&symbols=USD,EUR")
-    fun rate(): Observable<CurrencyGson>
+    fun getRate(): Observable<CurrencyGson>
 }

@@ -12,11 +12,11 @@ class ExchangeRatePresenter(
                 .observeOn(schedulers.ioScheduler)
                 .flatMap { gbpExchangeRateService.getRate() }
                 .observeOn(schedulers.uiScheduler)
-                .subscribe { aVoid -> view.showExchangeRate(aVoid) })
+                .subscribe { view.showExchangeRate(it) })
     }
 
     interface View : Presenter.View {
-        fun refreshes(): Observable<Void>
+        fun refreshes(): Observable<Unit>
 
         fun showExchangeRate(exchangeRate: GBPExchangeRate)
     }

@@ -11,7 +11,7 @@ class CurrencyMapperTest {
     @Test
     fun fetchesExchangeRates() {
         val mockWebServer = MockWebServerBuilder.aMockWebServer().returningJson(responseJson).start()
-        val currencyMapper = CurrencyMapper(RetrofitUtil.createService(ExchangeRetrofitService::class.java, mockWebServer.url("/").toString()))
+        val currencyMapper = CurrencyMapper(createService(ExchangeRetrofitService::class.java, mockWebServer.url("/").toString()))
 
         val testSubscriber = TestSubscriber.create<GBPExchangeRate>()
         currencyMapper.getRate().subscribe(testSubscriber)
