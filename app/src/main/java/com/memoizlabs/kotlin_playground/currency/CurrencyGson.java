@@ -1,13 +1,11 @@
 package com.memoizlabs.kotlin_playground.currency;
 
-import java.math.BigDecimal;
-
 public class CurrencyGson {
 
     private Rates rates;
 
     public GBPExchangeRate toGbpExchangeRate() {
-        return new GBPExchangeRate(new BigDecimal(rates.USD), new BigDecimal(rates.EUR));
+        return new GBPExchangeRate(new Money(rates.USD), new Money(rates.EUR));
     }
 
     @Override

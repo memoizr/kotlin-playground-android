@@ -1,23 +1,21 @@
 package com.memoizlabs.kotlin_playground.currency;
 
-import java.math.BigDecimal;
-
 public class GBPExchangeRateBuilder {
 
-    private BigDecimal toUSD = BigDecimal.ZERO;
-    private BigDecimal toEUR = BigDecimal.ZERO;
+    private Money toUSD = new Money(0);
+    private Money toEUR = new Money(0);
 
     public static GBPExchangeRateBuilder aGBPExchangeRate() {
         return new GBPExchangeRateBuilder();
     }
 
     public GBPExchangeRateBuilder withUsd(double usd) {
-        toUSD = new BigDecimal(usd);
+        toUSD = new Money(usd);
         return this;
     }
 
     public GBPExchangeRateBuilder withEur(double eur) {
-        toEUR = new BigDecimal(eur);
+        toEUR = new Money(eur);
         return this;
     }
 
