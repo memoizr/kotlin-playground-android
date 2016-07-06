@@ -57,7 +57,7 @@ public class CurrencyView extends LinearLayout implements ExchangeRatePresenter.
 
     @Override
     public void showExchangeRate(GBPExchangeRate gbpExchangeRate) {
-        usdTextView.setText(gbpExchangeRate.getToUSD().toPlainString());
-        eurTextView.setText(gbpExchangeRate.getToEUR().toPlainString());
+        usdTextView.setText(gbpExchangeRate.getToUSD().toString());
+        eurTextView.setText(gbpExchangeRate.getToEUR().toString());
     }
 }
